@@ -1,0 +1,74 @@
+#flip-box {
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+#flip-box-inner {
+  position: relative;
+  text-align: center;
+
+}
+/* Do an horizontal#flip when you move the mouse over the#flip box container */
+#flip-box:hover #flip-box-front {
+  transform: rotateY(180deg);
+}
+@media (max-width: 1200px){
+  #flip-box .flip-box-back .card{
+    
+    height: 160px;
+    width: 100%
+  }
+  #flip-box .flip-box-back .card p{
+    font-size: 70%;
+  }
+  #flip-box #flip-box-front{
+    width: 100%;
+  }#flip-box .flip-box-back{
+    width: 100%;
+    max-height: 150px;
+  }
+  #flip-box #flip-box-front img{
+    width: 100%;
+    min-height: 160px;
+    height: 180px;
+  }
+}
+@media (max-width: 768px){
+  .flip-box-back{
+    display: none;
+  }
+  #flip-box-front{
+    transition: none;
+  }
+  #flip-box:hover #flip-box-front {
+  transform: none;
+}
+  #top-margined{
+    margin-top: 200px;
+    clear: both;
+  }
+  
+}
+/* Position the front and back side */
+#flip-box-front, .flip-box-back {
+  position: absolute;
+ 
+  display: none;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+#flip-box-front {
+  transition: transform 0.8s;
+  z-index: 3;
+  transform-style: preserve-3d;
+  width: 90%; display: block; margin: 0 auto;
+}.flip-box-back {
+  width: 90%; display: block; 
+}
+
+/* Style the back side */
+.flip-box-back .card {
+  background-color: gray;
+  color: white;
+}
